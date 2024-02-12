@@ -92,9 +92,18 @@ const Admit = () => {
             value={section}
             onChange={handleSection}
           >
-            <option value=''>Select Section</option>
+            <option value='none'>Select Section</option>
             <option key='1' value='A'>
               A
+            </option>
+            <option key='2' value='B'>
+              B
+            </option>
+            <option key='3' value='C'>
+              C
+            </option>
+            <option key='4' value='D'>
+              D
             </option>
           </select>
         </div>

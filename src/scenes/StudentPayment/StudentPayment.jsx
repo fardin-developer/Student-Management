@@ -10,10 +10,9 @@ const Form = () => {
   const [message, setMessage] = useState('')
   const [green, setGreen] = useState(false)
   const handleFormSubmit = async values => {
-    alert('ukj')
     try {
       const body = JSON.stringify(values)
-      const response = await fetch('https://backend-teacher-production.up.railway.app/payment-update', {
+      const response = await fetch('http://localhost:80/payment-update', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -70,10 +69,10 @@ const Form = () => {
                 label='Class'
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.class}
-                name='class'
-                error={!!touched.class && !!errors.class}
-                helperText={touched.class && errors.class}
+                value={values.Class}
+                name='Class'
+                error={!!touched.Class && !!errors.Class}
+                helperText={touched.Class && errors.Class}
                 sx={{ gridColumn: 'span 2' }}
               />
             <Select
@@ -103,10 +102,10 @@ const Form = () => {
                 label='Roll Number'
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.rollno} // Use values.rollno here
-                name='rollno' // Use "rollno" as the name
-                error={!!touched.rollno && !!errors.rollno}
-                helperText={touched.rollno && errors.rollno}
+                value={values.rollNo} // Use values.rollno here
+                name='rollNo' // Use "rollno" as the name
+                error={!!touched.rollNo && !!errors.rollNo}
+                helperText={touched.rollNo && errors.rollNo}
                 sx={{ gridColumn: 'span 2' }}
               />
             </Box>
@@ -130,15 +129,15 @@ const Form = () => {
 }
 
 const checkoutSchema = yup.object().shape({
-  class: yup.number().required('Class is required'),
+  Class: yup.number().required('Class is required'),
   section: yup.string().required('Section is required'),
-  rollno: yup.number().required('Roll No. is required')
+  rollNo: yup.number().required('Roll No. is required')
 })
 
 const initialValues = {
-  class: '',
+  Class: '',
   section:'',
-  rollno: ''
+  rollNo: ''
 }
 
 export default Form
