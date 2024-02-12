@@ -12,7 +12,7 @@ const Form = () => {
   const handleFormSubmit = async values => {
     try {
       const body = JSON.stringify(values)
-      const response = await fetch('http://localhost:80/payment-update', {
+      const response = await fetch('https://backend-teacher-production.up.railway.app/payment-update', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
