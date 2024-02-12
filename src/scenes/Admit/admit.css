@@ -9,6 +9,9 @@ body {
   justify-content: center;
   margin-bottom: 40px;
 }
+.section{
+  margin-left: 20px;
+}
 .rollNumber {
   margin-left: 20px;
 }

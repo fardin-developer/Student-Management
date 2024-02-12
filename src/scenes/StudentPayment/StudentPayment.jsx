@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from '@mui/material'
+import { Box, Button, TextField,Select,MenuItem } from '@mui/material'
 import { Formik } from 'formik'
 import * as yup from 'yup'
 import useMediaQuery from '@mui/material/useMediaQuery'
@@ -76,6 +76,26 @@ const Form = () => {
                 helperText={touched.class && errors.class}
                 sx={{ gridColumn: 'span 2' }}
               />
+            <Select
+                fullWidth
+                variant='filled'
+                type='section'
+                label='Parents Phone Number'
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.section}
+                name='section'
+                error={!!touched.section && !!errors.section}
+                helperText={touched.section && errors.section}
+                sx={{ gridColumn: 'span 2' }}
+              >
+                <MenuItem value={"none"}>None</MenuItem>
+                <MenuItem value={"A"}>A</MenuItem>
+                <MenuItem value={'B'}>B</MenuItem>
+                <MenuItem value={'C'}>C</MenuItem>
+                <MenuItem value={'D'}>D</MenuItem>
+                <MenuItem value={'E'}>E</MenuItem>
+              </Select>
               <TextField
                 fullWidth
                 variant='filled'
@@ -111,11 +131,13 @@ const Form = () => {
 
 const checkoutSchema = yup.object().shape({
   class: yup.number().required('Class is required'),
+  section: yup.string().required('Section is required'),
   rollno: yup.number().required('Roll No. is required')
 })
 
 const initialValues = {
   class: '',
+  section:'',
   rollno: ''
 }
 
