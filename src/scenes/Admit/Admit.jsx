@@ -57,6 +57,8 @@ const Admit = () => {
           setName(`${data.name} has a debt`)
           setpaid(false)
           return 0
+        }else{
+          setpaid(true)
         }
         setName(data.name)
       } catch (error) {
