@@ -24,7 +24,7 @@ function App() {
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               {/* <Route path="/" element={<SignInSide />} /> */}
-              <Route path="/" element={<Login />} />
+              <Route path="/" element={<CreateStudent />} />
               <Route path="/create-student" element={<CreateStudent />} />
               <Route path="/payment-upgrade" element={<StudentPayment />} />
               <Route path="/admit" element={<Admit />} />
