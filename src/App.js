@@ -7,6 +7,8 @@ import { ColorModeContext, useMode } from "./theme";
 import Admit from "./scenes/Admit/Admit";
 import CreateStudent from "./scenes/CreateStudent/CreateStudent";
 import StudentPayment from "./scenes/StudentPayment/StudentPayment";
+import Login from "./scenes/Login/SignIn"
+import SignInSide from "./scenes/SideLogin/SignInSide";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -21,7 +23,8 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route path="/" element={<CreateStudent />} />
+              {/* <Route path="/" element={<SignInSide />} /> */}
+              <Route path="/" element={<Login />} />
               <Route path="/create-student" element={<CreateStudent />} />
               <Route path="/payment-upgrade" element={<StudentPayment />} />
               <Route path="/admit" element={<Admit />} />

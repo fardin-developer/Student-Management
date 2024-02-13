@@ -27,6 +27,7 @@ const Admit = () => {
   const [selectedRollNumber, setSelectedRollNumber] = useState('')
   // const [editableClass, setEditableClass] = useState(false)
   const [editableRollNumber, setEditableRollNumber] = useState(false)
+  const [paid, setpaid] = useState(true)
 
   const handleNameChange = event => {
     setName(event.target.value)
@@ -54,8 +55,7 @@ const Admit = () => {
         if (data.due === 'unpaid') {
           // alert('Student is not allowed to generate admit');
           setName(`${data.name} has a debt`)
-          document.getElementById('admitPrint').classList.add('admitPrint')
-          document.getElementById('h2-admitButton').removeAttribute('id')
+          setpaid(false)
           return 0
         }
         setName(data.name)
@@ -65,7 +65,7 @@ const Admit = () => {
     }
 
     fetchData()
-  }, [selectedRollNumber, selectedClass,section,name])
+  }, [selectedRollNumber, selectedClass, section, name])
 
   return (
     <>
@@ -85,7 +85,7 @@ const Admit = () => {
             ))}
           </select>
         </div>
-   
+
         <div className='rollNumber'>
           Roll No.{' '}
           {editableRollNumber ? (
@@ -118,8 +118,12 @@ const Admit = () => {
             onChange={handleSection}
           >
             <option value=''>Select Section</option>
-            <option key='0' value='none'>None  </option>
-            <option key='1' value='A'>A  </option>
+            <option key='0' value='none'>
+              None{' '}
+            </option>
+            <option key='1' value='A'>
+              A{' '}
+            </option>
             <option key='2' value='B'>
               B
             </option>
@@ -180,12 +184,20 @@ const Admit = () => {
           </div>
         </div>
       </div>
-      <button className='admitbtn' onClick={handlePrint} id='admitPrint'>
-        Print
-      </button>
-      <h2 id='h2-admitButton' className='h2-admitButton'>
-        Can not download admit with debt{' '}
-      </h2>
+      {paid ? (
+        <button className='admitbtn' onClick={handlePrint} id='admitPrint'>
+          Print
+        </button>
+      ) : (
+        <>
+        <h3 className='h2-admitButton'>
+          Admit Card is not valid{' '}
+        </h3>
+        <h2 className='h2-admitButton'>
+          Can not download admit with debt{' '}
+        </h2>
+        </>
+      )}
     </>
   )
 }
