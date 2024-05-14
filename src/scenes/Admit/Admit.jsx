@@ -49,18 +49,20 @@ const Admit = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://backend-teacher-production.up.railway.app/student-name?rollNo=${selectedRollNumber}&class=${selectedClass}&section=${section}`
+          `https://lms.fardindev.me/student-name?rollNo=${selectedRollNumber}&class=${selectedClass}&section=${section}`
         )
-        const data = await response.json()
+        const data = await response.json();
+        console.log(data)
+
         if (data.due === 'unpaid') {
           // alert('Student is not allowed to generate admit');
           setName(`${data.name} has a debt`)
           setpaid(false)
           return 0
         }else{
-          setpaid(true)
+          setpaid(true);
+          setName(data.name)
         }
-        setName(data.name)
       } catch (error) {
         console.error('Error fetching student data:', error)
       }
