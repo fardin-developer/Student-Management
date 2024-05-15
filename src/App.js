@@ -9,6 +9,7 @@ import CreateStudent from "./scenes/CreateStudent/CreateStudent";
 import StudentPayment from "./scenes/StudentPayment/StudentPayment";
 import Login from "./scenes/Login/SignIn"
 import SignInSide from "./scenes/SideLogin/SignInSide";
+import AttendancReport from "./components/AttendancReport";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -28,6 +29,7 @@ function App() {
               <Route path="/create-student" element={<CreateStudent />} />
               <Route path="/payment-upgrade" element={<StudentPayment />} />
               <Route path="/admit" element={<Admit />} />
+              <Route path="/attendance-report" element={<AttendancReport />} />
 
             </Routes>
           </main>
