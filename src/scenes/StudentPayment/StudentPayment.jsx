@@ -12,7 +12,7 @@ const Form = () => {
   const handleFormSubmit = async values => {
     try {
       const body = JSON.stringify(values)
-      const response = await fetch('https://nd-teacher-production.up.railway.app/payment-update', {
+      const response = await fetch('https://lms.fardindev.me/payment-update', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

@@ -65,6 +65,7 @@ export default function AttendancReport() {
   };
 
   const handleMonthChange = (event) => {
+    console.log(event.target.value);
     setSelectedMonth(event.target.value);
   };
 
